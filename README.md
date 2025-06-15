@@ -68,21 +68,21 @@ Organizes files in a specified directory based on file extension.
 
 Each script is executable. Make sure to give execute permissions:
 
-\`\`\`bash
+```bash
 chmod +x script_name.sh
-\`\`\`
+```
 
 Then run:
 
-\`\`\`bash
+```bash
 ./script_name.sh
-\`\`\`
+```
 
 For `organize_by_extension.sh`, provide the directory as an argument:
 
-\`\`\`bash
+```bash
 ./organize_by_extension.sh /path/to/your/folder
-\`\`\`
+```
 
 ---
 
