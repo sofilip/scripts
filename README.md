@@ -90,3 +90,7 @@ For `organize_by_extension.sh`, provide the directory as an argument:
 
 - Bash shell (typically preinstalled on most Linux distros)
 - Standard GNU utilities (`tar`, `find`, `grep`, `df`, `ps`, etc.)
+
+Course: Operating Systems - Unix
+
+Institution: University of Piraeus
