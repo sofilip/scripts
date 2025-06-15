@@ -20,7 +20,7 @@ BACKUP_DIR="$HOME/backups"
 
 # Create the backup directory if it doesn't exist
 if ! mkdir -p "$BACKUP_DIR"; then
-    echo "Error: Failed to create backup directory '$BACKUP_DIR'."
+    echo "Error: Failed to create backup directory '$BACKUP_DIR'"
     exit 1
 fi
 echo "Backup directory set to '$BACKUP_DIR'."
@@ -39,14 +39,14 @@ if ! tar -czf "$BACKUP_FILE" -C "$(dirname "$SOURCE_DIR")" "$DIR_NAME"; then
     exit 1
 fi
 
-echo "Backup completed successfully!"
+echo "Backup completed successfully !"
 echo "Backup saved to: $BACKUP_FILE"
 
 # iii. Delete backups older than 7 days
 echo "Cleaning up old backups..."
 
 if ! find "$BACKUP_DIR" -name "backup_*.tar.gz" -type f -mtime +7 -delete; then
-    echo "Warning: Failed to clean up some or all old backups. Manual check might be needed."
+    echo "Warning: Failed to clean up some or all old backups. Manual check might be needed"
     # Decide if this should be a fatal error or just a warning
     exit 1
 fi
