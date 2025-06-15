@@ -25,19 +25,27 @@ if ! mkdir -p "$BACKUP_DIR"; then
 fi
 echo "Backup directory set to '$BACKUP_DIR'."
 
+# Extract the basename (the actual directory name) from SOURCE_DIR
+DIR_BASENAME=$(basename "$SOURCE_DIR")
+
+# Extract the parent directory of SOURCE_DIR
+PARENT_DIR=$(dirname "$SOURCE_DIR")
+
 # Get the current date and time for the backup file name
 TIMESTAMP=$(date +%Y%m%d_%H%M%S)
 
-# ii. Create the backup file name
-BACKUP_FILE="${BACKUP_DIR}/backup_${DIR_NAME}_${TIMESTAMP}.tar.gz"
+# ii. Create the backup file name using the DIR_BASENAME
+BACKUP_FILE="${BACKUP_DIR}/backup_${DIR_BASENAME}_${TIMESTAMP}.tar.gz"
 
 echo "Creating backup of '$SOURCE_DIR'..."
-if ! tar -czf "$BACKUP_FILE" -C "$(dirname "$SOURCE_DIR")" "$DIR_NAME"; then
+# Create the backup file using tar
+if ! tar -czf "$BACKUP_FILE" -C "$PARENT_DIR" "$DIR_BASENAME"; then
     echo "Error: Backup creation failed for '$SOURCE_DIR'."
-    # Consider removing the partially created backup file if it exists
-    rm -f "$BACKUP_FILE"
+    rm -f "$BACKUP_FILE" # Clean up partially created file
     exit 1
 fi
+
+echo "Backup of '$SOURCE_DIR' created successfully at '$BACKUP_FILE'"
 
 echo "Backup completed successfully !"
 echo "Backup saved to: $BACKUP_FILE"
@@ -47,11 +55,10 @@ echo "Cleaning up old backups..."
 
 if ! find "$BACKUP_DIR" -name "backup_*.tar.gz" -type f -mtime +7 -delete; then
     echo "Warning: Failed to clean up some or all old backups. Manual check might be needed"
-    # Decide if this should be a fatal error or just a warning
     exit 1
 fi
 
 echo "Old backups cleaned up successfully !"
 
 # iv. Inform the user about the result (already done in the script)
-echo "Backup process finished"
+echo "Backup process finished successfully !"

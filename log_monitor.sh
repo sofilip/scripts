@@ -44,7 +44,7 @@ if grep -i "error\|warning\|critical" "$SOURCE_FILE" > "$REPORT_FILE" 2>/dev/nul
         exit 0
     fi
 else
-    echo "No important log entries found in '$SOURCE_FILE'."
+    echo "No important log entries found in '$SOURCE_FILE'"
     rm -f "$REPORT_FILE"  # Remove any empty file that might have been created
     exit 0
 fi
