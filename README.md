@@ -5,7 +5,7 @@ This repository includes four Bash scripts designed for Linux system automation 
 
 ---
 
-## 📦 1. `backup_script.sh`
+## 1. `backup_script.sh`
 
 Creates a compressed backup of a specified directory.
 
@@ -19,7 +19,7 @@ Creates a compressed backup of a specified directory.
 
 ---
 
-## 📄 2. `log_monitor.sh`
+## 2. `log_monitor.sh`
 
 Monitors log files for important entries.
 
@@ -34,7 +34,7 @@ Monitors log files for important entries.
 
 ---
 
-## 🖥️ 3. `system_info.sh`
+## 3. `system_info.sh`
 
 Displays system and hardware information in a formatted output.
 
@@ -50,7 +50,7 @@ Displays system and hardware information in a formatted output.
 
 ---
 
-## 📂 4. `organize_by_extension.sh`
+## 4. `organize_by_extension.sh`
 
 Organizes files in a specified directory based on file extension.
 
@@ -64,7 +64,7 @@ Organizes files in a specified directory based on file extension.
 
 ---
 
-## 💡 Usage
+## Usage
 
 Each script is executable. Make sure to give execute permissions:
 
@@ -86,7 +86,7 @@ For `organize_by_extension.sh`, provide the directory as an argument:
 
 ---
 
-## 📎 Requirements
+## Requirements
 
 - Bash shell (typically preinstalled on most Linux distros)
 - Standard GNU utilities (`tar`, `find`, `grep`, `df`, `ps`, etc.)
